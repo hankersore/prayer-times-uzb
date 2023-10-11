@@ -30,16 +30,16 @@ async function getData(region) {
     quyosh_time.innerHTML = data.times.quyosh
     let timeCheck = new Date;
     let test = `${timeCheck.getHours()}:${timeCheck.getMinutes()}`
-    if (test == data.times.bomdod || test < data.times.quyosh) {
+    if (test == data.times.tong_saharlik || test < data.times.quyosh) {
       bomdod.classList.add("active");
     }
-    else if (test != data.times.quyosh && test < data.times.asr) {
+    else if (test == data.times.peshin || (data.times.quyosh < test < data.times.asr)) {
       peshin.classList.add("active");
     }
-    else if (test == data.times.asr || test < data.times.shom) {
+    else if (test == data.times.asr || test < data.times.shom_iftor) {
       asr.classList.add("active");
     }
-    else if (test == data.times.shom || test < data.times.hufton) {
+    else if (test == data.times.shom_iftor || test < data.times.hufton) {
       shom.classList.add("active");
     }
     else if (test == data.times.hufton || test < "23:59") {
